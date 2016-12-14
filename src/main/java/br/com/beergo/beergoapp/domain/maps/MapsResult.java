@@ -43,4 +43,14 @@ public class MapsResult {
                 .append(isAberto() ? "<b>Aberto</b>" : "<b>Fechado</b>");
         return sb.toString();
     }
+    
+    public MapsMobileDTO toMobileDTO(double percentOff){
+    	MapsMobileDTO mapsMobileDTO = new MapsMobileDTO();
+    	mapsMobileDTO.setName(getNome());
+    	mapsMobileDTO.setRating(getAvaliacao());
+    	mapsMobileDTO.setOpen(isAberto());
+    	mapsMobileDTO.setLocation(getCoordenadas() != null ? getCoordenadas().getLocation() : null);
+    	mapsMobileDTO.setPercentOff(percentOff);
+    	return mapsMobileDTO;
+    }
 }

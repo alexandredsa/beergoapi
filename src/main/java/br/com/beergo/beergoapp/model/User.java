@@ -19,7 +19,10 @@ public class User {
 	private String password;
 	@Column(name = "experience", length = 20, nullable = false)
 	private long experience;
-	
+
+	public void addExperience(long experience) {
+		this.experience += experience;
+	}
 
 	public Long getID() {
 		return ID;
@@ -52,6 +55,5 @@ public class User {
 	public void setExperience(long experience) {
 		this.experience = experience;
 	}
-	
-	
+
 }

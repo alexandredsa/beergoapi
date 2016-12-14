@@ -13,4 +13,8 @@ public class MapsGeometry {
     public double getLongitude() {
         return location.getLng();
     }
+    
+    public MapsLocation getLocation() {
+		return location;
+	}
 }

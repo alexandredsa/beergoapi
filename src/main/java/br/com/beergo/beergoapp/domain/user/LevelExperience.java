@@ -1,7 +1,8 @@
 package br.com.beergo.beergoapp.domain.user;
 
 public enum LevelExperience {
-	ONE(0, 1), TWO(200, 2), THREE(400, 3), FOUR(800, 4), FIVE(1500, 5), SIX(2000, 6), SEVEN(3000, 7), EIGHT(4000, 8), NINE(5500, 9), TEN(7000, 10);
+	ONE(0, 1), TWO(200, 2), THREE(400, 3), FOUR(800, 4), FIVE(1500, 5), SIX(2000, 6), SEVEN(3000, 7), EIGHT(4000,
+			8), NINE(5500, 9), TEN(7000, 10);
 	private long experience;
 	private int value;
 
@@ -12,6 +13,33 @@ public enum LevelExperience {
 
 	public long getExperience() {
 		return experience;
+	}
+
+	public LevelExperience getNext() {
+		switch (this) {
+		case ONE:
+			return TWO;
+		case TWO:
+			return THREE;
+		case THREE:
+			return FOUR;
+		case FOUR:
+			return FIVE;
+		case FIVE:
+			return SIX;
+		case SIX:
+			return SEVEN;
+		case SEVEN:
+			return EIGHT;
+		case EIGHT:
+			return NINE;
+		case NINE:
+			return TEN;
+		case TEN:
+			return TEN;
+		}
+
+		return ONE;
 	}
 
 	public static LevelExperience getLevel(long experience) {
@@ -48,6 +76,10 @@ public enum LevelExperience {
 
 	public int getInt() {
 		return value;
+	}
+
+	public static LevelExperience getMaxLevel() {
+		return TEN;
 	}
 
 }
